@@ -10,12 +10,21 @@ export default function Dictionary(props) {
   function handleResponse(response) {
     setResults(response.data);
   }
+
   function search(searchKeyword) {
-    const apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${encodeURIComponent(searchKeyword)}&key=df0033d89466fabb34t4ob6db243c833`;
+    const apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${encodeURIComponent(
+      searchKeyword,
+    )}&key=df0033d89466fabb34t4ob6db243c833`;
+
     axios.get(apiUrl).then(handleResponse);
   }
+
   useEffect(() => {
-    search(props.defaultKeyword || "");
+    const apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${encodeURIComponent(
+      props.defaultKeyword || "",
+    )}&key=df0033d89466fabb34t4ob6db243c833`;
+
+    axios.get(apiUrl).then(handleResponse);
   }, [props.defaultKeyword]);
 
   function handleSubmit(event) {
@@ -31,14 +40,14 @@ export default function Dictionary(props) {
     <div className="Dictionary">
       <section>
         <h2>What word do you want to look up?</h2>
+
         <form onSubmit={handleSubmit}>
           <input
             type="search"
             value={keyword}
             onChange={handleKeywordChange}
-            autoFocus={true}
+            autoFocus
             placeholder="Search for a word..."
-            defaultValue={props.defaultKeyword}
           />
         </form>
 
