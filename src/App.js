@@ -6,10 +6,10 @@ function App() {
     <div className="App">
       <div className="container">
         <header className="App-header">
-          <h1 className="text-center">Dictionary App</h1>
+          <h1 className="text-center">Word Search</h1>
         </header>
         <main>
-          <Dictionary />
+          <Dictionary defaultKeyword="dream" />
         </main>
         <footer className="App-footer">
           <small>

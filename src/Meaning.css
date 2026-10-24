@@ -1,0 +1,14 @@
+.Meaning {
+  margin-bottom: 1.5rem;
+}
+.Meaning h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.Meaning .example {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #a9927d;
+}
