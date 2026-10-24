@@ -10,19 +10,17 @@ export default function Dictionary(props) {
   function handleResponse(response) {
     setResults(response.data);
   }
-
-  function search() {
-    const apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${encodeURIComponent(keyword)}&key=df0033d89466fabb34t4ob6db243c833`;
+  function search(searchKeyword) {
+    const apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${encodeURIComponent(searchKeyword)}&key=df0033d89466fabb34t4ob6db243c833`;
     axios.get(apiUrl).then(handleResponse);
   }
-
   useEffect(() => {
-    search();
-  }, []);
+    search(props.defaultKeyword || "");
+  }, [props.defaultKeyword]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    search();
+    search(keyword);
   }
 
   function handleKeywordChange(event) {
