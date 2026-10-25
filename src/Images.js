@@ -1,4 +1,4 @@
-import images from "./Images.css";
+import "./Images.css";
 
 export default function Images(props) {
   if (!props.images || !props.images.photos) {
